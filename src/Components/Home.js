@@ -5,7 +5,7 @@ import "./CSS/Home.css";
 
 export default function Home() {
   let minFrequency = 0.5;
-  let maxFrequency = 2;
+  let maxFrequency = 4;
   let minAmplitude = 0.05;
   let maxAmplitude = 0.5;
   const canvasWidth = 370;
@@ -24,10 +24,6 @@ export default function Home() {
 
     p5.mouseX = canvasWidth / 4;
     p5.mouseY = canvasHeight / 4;
-
-    /*     let x = (p5.windowWidth - p5.width) / 2;
-    let y = (p5.windowHeight - p5.height) / 2;
-    xyz.position(x, y); */
   };
 
   const draw = (p5) => {
@@ -79,7 +75,7 @@ export default function Home() {
       end,
       steps = 200,
       frequency = 10000,
-      time = 10,
+      time = 100,
       amplitude = 0.1,
       p5,
     } = opt;

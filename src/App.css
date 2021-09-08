@@ -5,6 +5,6 @@
 .App {
   height: 100vh;
   display: grid;
-  grid-template-rows: 15% 70% 15%;
+  grid-template-rows: 20vh auto 5vh;
   grid-template-columns: 0 auto 0;
 }
