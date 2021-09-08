@@ -10,9 +10,18 @@ export default function Header() {
         <Title title="DATAPOP" />
       </div>
       <div className="Nav">
-        <NavLink to="/"> START </NavLink>
-        <NavLink to="/list"> SHOW LIST </NavLink>
-        <NavLink to="/about"> POST SOMETHING </NavLink>
+        <NavLink to="/">
+          {" "}
+          <p>START</p>{" "}
+        </NavLink>
+        <NavLink to="/list">
+          {" "}
+          <p>SHOW LIST</p>{" "}
+        </NavLink>
+        <NavLink to="/about">
+          {" "}
+          <p>POST SOMETHING</p>{" "}
+        </NavLink>
       </div>
     </div>
   );

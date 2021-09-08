@@ -1,16 +1,28 @@
 .Header {
   grid-column: 2/3;
   grid-row: 1/2;
-  border: 1px solid #0ff;
+  background-color: black;
 }
 
 .HERO {
   display: flex;
   justify-content: center;
   margin: 1rem;
+  color: #0ff;
 }
 
 .Nav {
   display: flex;
   justify-content: space-around;
+  text-decoration: none;
+}
+
+.Nav p {
+  margin: 0;
+  color: #0ff;
+}
+
+.Nav a {
+  margin: 0;
+  text-decoration: none;
 }

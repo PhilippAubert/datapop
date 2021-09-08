@@ -8,8 +8,8 @@ export default function Home() {
   let maxFrequency = 2;
   let minAmplitude = 0.05;
   let maxAmplitude = 0.5;
-  const canvasWidth = 380;
-  const canvasHeight = 520;
+  const canvasWidth = 370;
+  const canvasHeight = 496;
 
   // Included in index.html
   // This is an alternative to p5.js builtin 'noise' function,
@@ -48,10 +48,10 @@ export default function Home() {
 
     // Draw the background
     p5.noFill();
-    p5.stroke(255);
+    p5.stroke(355);
     p5.strokeWeight(dim * 0.0075);
 
-    const time = p5.millis() / 10000;
+    const time = p5.millis() / 1900;
     const rows = 100;
 
     // Draw each line
@@ -65,8 +65,8 @@ export default function Home() {
         end: [canvasWidth, py],
         amplitude: amplitude * canvasHeight,
         frequency,
-        time: time * 0.5,
-        steps: 1150,
+        time: time * 0.1,
+        steps: 100,
         p5,
       });
     }
@@ -79,8 +79,8 @@ export default function Home() {
       end,
       steps = 200,
       frequency = 10000,
-      time = 0,
-      amplitude = 1,
+      time = 10,
+      amplitude = 0.1,
       p5,
     } = opt;
 
