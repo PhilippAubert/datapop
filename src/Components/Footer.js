@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <div className="Footer">
       <div className="Editorial">
-        <p className="Editorial-Text">created by UJIN22</p>
+        <p className="Editorial-Text">PHILIPP AUBERT 2021</p>
       </div>
     </div>
   );
