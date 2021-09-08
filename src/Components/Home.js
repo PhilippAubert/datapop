@@ -8,8 +8,8 @@ export default function Home() {
   let maxFrequency = 2;
   let minAmplitude = 0.05;
   let maxAmplitude = 0.5;
-  const canvasWidth = 375;
-  const canvasHeight = 470;
+  const canvasWidth = 365;
+  const canvasHeight = 460;
 
   // Included in index.html
   // This is an alternative to p5.js builtin 'noise' function,
@@ -22,8 +22,8 @@ export default function Home() {
     // (without that p5 will render the canvas outside of your component)
     p5.createCanvas(canvasWidth, canvasHeight).parent(canvasParentRef);
 
-    p5.mouseX = canvasWidth / 2;
-    p5.mouseY = canvasHeight / 2;
+    p5.mouseX = canvasWidth / 4;
+    p5.mouseY = canvasHeight / 4;
 
     /*     let x = (p5.windowWidth - p5.width) / 2;
     let y = (p5.windowHeight - p5.height) / 2;
@@ -112,7 +112,9 @@ export default function Home() {
 
   return (
     <div className="Main">
-      <Sketch setup={setup} draw={draw} />
+      <div className="Canvas">
+        <Sketch setup={setup} draw={draw} />
+      </div>
     </div>
   );
 }
