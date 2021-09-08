@@ -2,3 +2,14 @@
   grid-row: 2/3;
   grid-column: 2/3;
 }
+
+.Users-List {
+  color: white;
+  display: flex;
+  display: flex;
+  justify-content: center;
+}
+
+.Users-List__Headline {
+  font-size: 0.9rem;
+}
