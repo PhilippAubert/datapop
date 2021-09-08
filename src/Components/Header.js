@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <div className="Header">
       <div className="HERO">
-        <Title title="#DATAPOP" />
+        <Title title="DATAPOP" />
       </div>
       <div className="Nav">
         <NavLink to="/"> START </NavLink>

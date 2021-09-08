@@ -8,9 +8,3 @@
   grid-template-rows: 15% auto 10%;
   grid-template-columns: 0 auto 0;
 }
-
-.Canvas {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
