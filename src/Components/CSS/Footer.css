@@ -1,0 +1,12 @@
+.Footer {
+  grid-column: 2/3;
+  grid-row: 3/4;
+  border: 1px solid #f0f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Editorial-Text {
+  margin: 0;
+}

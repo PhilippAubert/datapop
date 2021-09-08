@@ -1,0 +1,16 @@
+.Header {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  border: 1px solid #0ff;
+}
+
+.HERO {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.Nav {
+  display: flex;
+  justify-content: space-around;
+}
