@@ -58,8 +58,8 @@ export default function Home() {
     p5.stroke(255);
     p5.strokeWeight(dim * 0.0075);
 
-    const time = p5.millis() / 1000;
-    const rows = 10;
+    const time = p5.millis() / 100;
+    const rows = 100;
 
     // Draw each line
     for (let y = 0; y < rows; y++) {
@@ -73,7 +73,7 @@ export default function Home() {
         amplitude: amplitude * canvasHeight,
         frequency,
         time: time * 0.5,
-        steps: 150,
+        steps: 1150,
         p5,
       });
     }
@@ -84,9 +84,9 @@ export default function Home() {
       v,
       start,
       end,
-      steps = 10,
-      frequency = 1,
-      time = 0,
+      steps = 200,
+      frequency = 10000,
+      time = 10,
       amplitude = 1,
       p5,
     } = opt;
