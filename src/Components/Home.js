@@ -9,7 +9,7 @@ export default function Home() {
   let minAmplitude = 0.05;
   let maxAmplitude = 0.5;
   const canvasWidth = 375;
-  const canvasHeight = 495;
+  const canvasHeight = 465;
 
   // Included in index.html
   // This is an alternative to p5.js builtin 'noise' function,
