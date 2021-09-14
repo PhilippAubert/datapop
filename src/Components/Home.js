@@ -8,8 +8,8 @@ export default function Home() {
   let maxFrequency = 4;
   let minAmplitude = 0.05;
   let maxAmplitude = 0.5;
-  const canvasWidth = 370;
-  const canvasHeight = 400;
+  const canvasWidth = 375;
+  const canvasHeight = 495;
 
   // Included in index.html
   // This is an alternative to p5.js builtin 'noise' function,
@@ -22,12 +22,13 @@ export default function Home() {
     // (without that p5 will render the canvas outside of your component)
     p5.createCanvas(canvasWidth, canvasHeight).parent(canvasParentRef);
 
-    p5.mouseX = canvasWidth / 4;
-    p5.mouseY = canvasHeight / 4;
+    p5.mouseX = canvasWidth / 16;
+    p5.mouseY = canvasHeight / 16;
   };
 
   const draw = (p5) => {
     p5.background(0);
+
     const frequency = p5.lerp(
       minFrequency,
       maxFrequency,
@@ -60,8 +61,8 @@ export default function Home() {
         end: [canvasWidth, py],
         amplitude: amplitude * canvasHeight,
         frequency,
-        time: time * 0.1,
-        steps: 100,
+        time: time * 0.3,
+        steps: 200,
         p5,
       });
     }
@@ -72,9 +73,9 @@ export default function Home() {
       v,
       start,
       end,
-      steps = 200,
-      frequency = 10000,
-      time = 100,
+      steps = 1400,
+      frequency = 1000,
+      time = 1,
       amplitude = 0.1,
       p5,
     } = opt;
@@ -87,7 +88,7 @@ export default function Home() {
     p5.beginShape();
     for (let i = 0; i < steps; i++) {
       // Get interpolation factor between 0..1
-      const t = steps <= 1 ? 0.5 : i / (steps - 1);
+      const t = steps <= 1 ? 1.5 : i / (steps - 1);
 
       // Interpolate X position
       const x = p5.lerp(xStart, xEnd, t);
@@ -107,7 +108,9 @@ export default function Home() {
 
   return (
     <div className="Main">
-      <Sketch setup={setup} draw={draw} />
+      <div className="Canvas">
+        <Sketch setup={setup} draw={draw} />
+      </div>
     </div>
   );
 }

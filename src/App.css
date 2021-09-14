@@ -7,4 +7,5 @@
   display: grid;
   grid-template-rows: 20vh auto 5vh;
   grid-template-columns: 0 auto 0;
+  background-color: #000;
 }

@@ -16,11 +16,11 @@ export default function Header() {
         </NavLink>
         <NavLink to="/list">
           {" "}
-          <p>SHOW LIST</p>{" "}
+          <p>POSTS</p>{" "}
         </NavLink>
         <NavLink to="/about">
           {" "}
-          <p>POST SOMETHING</p>{" "}
+          <p>WRITE</p>{" "}
         </NavLink>
       </div>
     </div>
