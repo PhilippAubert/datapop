@@ -28,7 +28,6 @@ export default function Home() {
 
   const draw = (p5) => {
     p5.background(0);
-
     const frequency = p5.lerp(
       minFrequency,
       maxFrequency,
@@ -108,9 +107,7 @@ export default function Home() {
 
   return (
     <div className="Main">
-      <div className="Canvas">
-        <Sketch setup={setup} draw={draw} />
-      </div>
+      <Sketch setup={setup} draw={draw} />
     </div>
   );
 }
