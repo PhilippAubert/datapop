@@ -25,7 +25,7 @@ export default function About() {
           />
           <h2 className="Input-Form_Label">PUBLISH</h2>
           <button className="Input-Button" type="submit">
-            <p Input-Button_Text>SEND POST</p>
+            <p>SEND POST</p>
           </button>
         </form>
       </div>

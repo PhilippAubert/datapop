@@ -22,6 +22,7 @@
 .Input-Form {
   display: flex;
   flex-direction: column;
+  padding: 1rem;
 }
 
 .Input-Form_Label {
@@ -38,6 +39,10 @@
 .Input-Button {
   outline: 0;
   margin: 0 25vw;
-  border: 2px solid #000;
+  border: 2px solid #f2f;
   font-size: 1rem;
+}
+
+.Input-Button p {
+  margin: 0;
 }

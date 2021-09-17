@@ -3,9 +3,8 @@
 }
 
 .App {
-  height: 100vh;
   display: grid;
-  grid-template-rows: 16vh auto 5vh;
+  grid-template-rows: 15vh 70vh 15vh;
   grid-template-columns: 0 auto 0;
   background-color: #000;
 }
