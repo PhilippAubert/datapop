@@ -8,15 +8,25 @@ export default function About() {
           <h1>WRITE YOUR POST HERE </h1>
         </div>
         <form className="Input-Form">
-          <label className="Input-Form_Label" for="title">
+          <h2 className="Input-Form_Label" for="title">
             ENTER TITLE
-          </label>
+          </h2>
           <input type="text" key="id" id="text_id" placeholder="enter title" />
-          <label className="Input-Form_Label" for="post">
+          <h2 className="Input-Form_Label" for="post">
             ENTER POST
-          </label>
-          <textarea type="text" id="id" placeholder="write post here" />
-          <button type="submit">send post</button>
+          </h2>
+          <textarea
+            className="Input-Form_Textarea"
+            type="text"
+            id="id"
+            placeholder="write post here"
+            cols="30"
+            rows="10"
+          />
+          <h2 className="Input-Form_Label">PUBLISH</h2>
+          <button className="Input-Button" type="submit">
+            <p Input-Button_Text>SEND POST</p>
+          </button>
         </form>
       </div>
     </div>
