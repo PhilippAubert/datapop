@@ -16,7 +16,7 @@ export default function UserList() {
       <div className="Users-List">
         {posts &&
           posts.map((post) => {
-            return <Posts key={post.id} text={post.body} title={post.title} />;
+            return <Posts key={post._id} text={post.body} title={post.title} />;
           })}
       </div>
     </div>

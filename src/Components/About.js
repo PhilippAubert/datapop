@@ -4,23 +4,20 @@ export default function About() {
   return (
     <div className="Main">
       <div className="About-List">
-        <div className="About-List__Headline">
-          <h1>WRITE YOUR POST HERE </h1>
-        </div>
         <form className="Input-Form">
-          <h2 className="Input-Form_Label" for="title">
-            ENTER TITLE
-          </h2>
+          <label for="title">
+            <h2 className="Input-Form_Label">ENTER TITLE</h2>
+          </label>
           <input
-            className="Input-Form_Title"
+            className="Input-Form_Input"
             type="text"
             key="id"
             id="text_id"
             placeholder="enter title"
           />
-          <h2 className="Input-Form_Label" for="post">
-            ENTER POST
-          </h2>
+          <label for="post">
+            <h2 className="Input-Form_Label">ENTER POST</h2>
+          </label>
           <textarea
             className="Input-Form_Textarea"
             type="text"
