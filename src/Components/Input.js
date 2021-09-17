@@ -1,6 +1,6 @@
 import React from "react";
 import "./CSS/About.css";
-export default function About() {
+export default function Input() {
   return (
     <div className="Main">
       <div className="About-List">
@@ -11,9 +11,8 @@ export default function About() {
           <input
             className="Input-Form_Input"
             type="text"
-            key="id"
-            id="text_id"
-            placeholder="enter title"
+            id="title"
+            placeholder="ENTER TITLE"
           />
           <label for="post">
             <h2 className="Input-Form_Label">ENTER POST</h2>
@@ -21,8 +20,8 @@ export default function About() {
           <textarea
             className="Input-Form_Textarea"
             type="text"
-            id="id"
-            placeholder="write post here"
+            id="text"
+            placeholder="WRITE POST HERE"
             cols="30"
             rows="10"
           />

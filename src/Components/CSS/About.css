@@ -1,13 +1,16 @@
 .Main {
   grid-row: 2/3;
   grid-column: 2/3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .About-List {
   color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
 }
 
 .About-List__Headline {
@@ -22,7 +25,7 @@
 .Input-Form_Label {
   display: flex;
   justify-content: center;
-  margin: 1rem 0;
+  margin: 1.5rem 0;
 }
 
 .Input-Form_Input {

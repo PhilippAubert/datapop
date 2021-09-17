@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./Components/Header.js";
-import About from "./Components/About.js";
+import Input from "./Components/Input.js";
 import UserList from "./Components/UserList.js";
 import Home from "./Components/Home.js";
 import Footer from "./Components/Footer.js";
@@ -19,8 +19,8 @@ export default function App() {
           <Route path="/list">
             <UserList />
           </Route>
-          <Route path="/about">
-            <About />
+          <Route path="/input">
+            <Input />
           </Route>
         </Switch>
         <Footer />

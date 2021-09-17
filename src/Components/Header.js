@@ -18,7 +18,7 @@ export default function Header() {
           {" "}
           <p>POSTS</p>{" "}
         </NavLink>
-        <NavLink to="/about">
+        <NavLink to="/input">
           {" "}
           <p>WRITE</p>{" "}
         </NavLink>
