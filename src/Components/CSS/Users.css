@@ -1,15 +1,39 @@
 .Main {
   grid-row: 2/3;
   grid-column: 2/3;
+  overflow-y: scroll;
+}
+
+.Headline {
+  display: flex;
+  justify-content: center;
+  color: #fff;
 }
 
 .Users-List {
   color: white;
   display: flex;
-  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
-.Users-List__Headline {
-  font-size: 0.9rem;
+.Posts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #f00;
+  margin: 2rem;
+  padding: 1rem;
+}
+
+.Posts_Headline {
+  margin: 0;
+}
+
+.Posts_Text {
+  margin: 0;
+}
+
+.Button {
+  border: 1px solid #f2f;
 }
