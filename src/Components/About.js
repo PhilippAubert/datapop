@@ -11,7 +11,13 @@ export default function About() {
           <h2 className="Input-Form_Label" for="title">
             ENTER TITLE
           </h2>
-          <input type="text" key="id" id="text_id" placeholder="enter title" />
+          <input
+            className="Input-Form_Title"
+            type="text"
+            key="id"
+            id="text_id"
+            placeholder="enter title"
+          />
           <h2 className="Input-Form_Label" for="post">
             ENTER POST
           </h2>
