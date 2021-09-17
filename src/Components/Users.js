@@ -7,33 +7,11 @@ export default function Users() {
       <div className="Users-List">
         <div className="Posts">
           <h2 className="Posts_Headline">Placeholder Entry</h2>
-          <p className="Posts_Text">Blind text for dummy representation</p>
-          <p className="Posts_Text">Blind text for dummy representation</p>
-          <p className="Posts_Text">Blind text for dummy representation</p>
-          <div className="Buttons">
-            <button className="Button">Delete</button>
-            <button className="Button">Edit</button>
+          <div className="Posts_Textarea">
+            <p className="Posts_Text">Blind text for dummy representation</p>
+            <p className="Posts_Text">Blind text for dummy representation</p>
+            <p className="Posts_Text">Blind text for dummy representation</p>
           </div>
-        </div>
-      </div>
-      <div className="Users-List">
-        <div className="Posts">
-          <h2 className="Posts_Headline">Placeholder Entry</h2>
-          <p className="Posts_Text">Blind text for dummy representation</p>
-          <p className="Posts_Text">Blind text for dummy representation</p>
-          <p className="Posts_Text">Blind text for dummy representation</p>
-          <div className="Buttons">
-            <button className="Button">Delete</button>
-            <button className="Button">Edit</button>
-          </div>
-        </div>
-      </div>
-      <div className="Users-List">
-        <div className="Posts">
-          <h2 className="Posts_Headline">Placeholder Entry</h2>
-          <p className="Posts_Text">Blind text for dummy representation</p>
-          <p className="Posts_Text">Blind text for dummy representation</p>
-          <p className="Posts_Text">Blind text for dummy representation</p>
           <div className="Buttons">
             <button className="Button">Delete</button>
             <button className="Button">Edit</button>

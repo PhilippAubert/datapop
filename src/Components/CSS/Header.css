@@ -2,6 +2,9 @@
   grid-column: 2/3;
   grid-row: 1/2;
   background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .HERO {
@@ -23,6 +26,6 @@
 }
 
 .Nav a {
-  margin: 0;
+  margin: 0 2rem;
   text-decoration: none;
 }
