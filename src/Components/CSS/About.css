@@ -6,10 +6,27 @@
 .About-List {
   color: white;
   display: flex;
-  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .About-List__Headline {
   font-size: 0.9rem;
+}
+
+.Input-Area {
+  display: flex;
+  justify-content: center;
+}
+
+.Input-Form {
+  display: flex;
+  flex-direction: column;
+}
+
+.Input-Form_Label {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
 }
