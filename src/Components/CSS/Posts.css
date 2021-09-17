@@ -1,0 +1,28 @@
+.Posts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem;
+  padding: 1rem;
+  border-right: 2px solid #f2f;
+}
+
+.Posts_Headline {
+  margin: 0;
+}
+
+.Posts_Textarea {
+  padding: 1rem 0;
+  overflow-wrap: break-word;
+}
+
+.Posts_Text {
+  margin: 0;
+}
+
+.Button {
+  border: 1px solid #f2f;
+  padding: 0.3rem;
+  margin-right: 1rem;
+  color: #fff;
+}
