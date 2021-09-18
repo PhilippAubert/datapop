@@ -6,7 +6,7 @@ export default function UserList() {
   const [posts, setPosts] = useState();
 
   useEffect(() => {
-    fetch("http://172.21.69.122:3005/spark")
+    fetch("http://localhost:3005/spark")
       .then((response) => response.json())
       .then((posts) => setPosts(posts));
   }, []);
@@ -15,9 +15,11 @@ export default function UserList() {
     <div className="Main">
       <div className="Users-List">
         {posts &&
-          posts.map((post) => {
-            return <Posts key={post._id} text={post.body} title={post.title} />;
-          })}
+          posts
+            .map((post) => {
+              return <Posts key={post._id} post={post} />;
+            })
+            .reverse()}
       </div>
     </div>
   );

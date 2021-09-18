@@ -4,12 +4,8 @@ const { Schema } = mongoose;
 
 const PostSchema = new Schema(
   {
-    db: String,
     title: String,
     body: String,
-    img: {
-      type: String,
-    },
     votes: {
       up: Number,
       down: Number,

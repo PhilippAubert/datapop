@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./Components/Header.js";
 import Input from "./Components/Input.js";
-import UserList from "./Components/UserList.js";
+import PostList from "./Components/PostList.js";
 import Home from "./Components/Home.js";
 import Footer from "./Components/Footer.js";
 import "./App.css";
@@ -17,7 +17,7 @@ export default function App() {
             <Home />
           </Route>
           <Route path="/list">
-            <UserList />
+            <PostList />
           </Route>
           <Route path="/input">
             <Input />
