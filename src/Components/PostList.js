@@ -26,7 +26,7 @@ export default function UserList() {
       fetch("http://localhost:3005/spark", {
         method: "GET",
         "content-type": "application/json",
-      }).then(() => console.log(() => `Post ${post._id} deleted`))
+      }).then(() => console.log(`Post ${post._id} deleted`))
     );
 
     setPosts(newPosts);
