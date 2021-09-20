@@ -4,6 +4,7 @@ import Header from "./Components/Header.js";
 import Input from "./Components/Input.js";
 import PostList from "./Components/PostList.js";
 import Home from "./Components/Home.js";
+import Edit from "./Components/Edit.js";
 import Footer from "./Components/Footer.js";
 import "./App.css";
 
@@ -21,6 +22,9 @@ export default function App() {
           </Route>
           <Route path="/input">
             <Input />
+          </Route>
+          <Route path="/edit">
+            <Edit />
           </Route>
         </Switch>
         <Footer />

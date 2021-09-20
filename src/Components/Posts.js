@@ -1,7 +1,11 @@
 import React from "react";
 import "./CSS/Posts.css";
 
-export default function Posts({ post, onRemoveClick }) {
+export default function Posts({ post, onRemoveClick, onEditClick }) {
+  function handleEditClick() {
+    onEditClick();
+  }
+
   function handleDeleteClick() {
     onRemoveClick(post);
   }
@@ -15,7 +19,9 @@ export default function Posts({ post, onRemoveClick }) {
         <button onClick={handleDeleteClick} className="Button">
           Delete
         </button>
-        <button className="Button">Edit</button>
+        <button onClick={handleEditClick} className="Button">
+          Edit
+        </button>
       </div>
     </div>
   );

@@ -1,9 +1,12 @@
 import "./CSS/Users.css";
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import Posts from "./Posts.js";
 
 export default function UserList() {
   const [posts, setPosts] = useState();
+
+  let history = useHistory();
 
   useEffect(() => {
     fetch("http://localhost:3005/spark")
@@ -12,7 +15,7 @@ export default function UserList() {
   }, []);
 
   function handlePostRemove(post) {
-    console.log(` deleted post ${post.title}`);
+    console.log(` deleting post ${post.title}`);
     const newPosts = posts.filter((postItem) => {
       return postItem !== post;
     });
@@ -26,7 +29,10 @@ export default function UserList() {
       fetch("http://localhost:3005/spark", {
         method: "GET",
         "content-type": "application/json",
-      }).then(() => console.log(`Post ${post._id} deleted`))
+      })
+        .then((response) => response.json())
+        .then((posts) => setPosts(posts))
+        .then(() => console.log(`Post ${post.title} deleted`))
     );
 
     setPosts(newPosts);
@@ -45,6 +51,7 @@ export default function UserList() {
                   key={post._id}
                   post={post}
                   onRemoveClick={handlePostRemove}
+                  onEditClick={() => history.push(`/edit/${post._id}`)}
                 />
               );
             })
