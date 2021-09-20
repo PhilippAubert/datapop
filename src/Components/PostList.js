@@ -11,13 +11,41 @@ export default function UserList() {
       .then((posts) => setPosts(posts));
   }, []);
 
+  function handlePostRemove(post) {
+    console.log(` deleted post ${post.title}`);
+    const newPosts = posts.filter((postItem) => {
+      return postItem !== post;
+    });
+    const options = {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(post),
+    };
+
+    console.log(post);
+
+    fetch(`http://localhost:3005/spark/${post._id}`, options).then(() =>
+      console.log(`Post ${post._id} deleted`)
+    );
+
+    setPosts(newPosts);
+  }
+
   return (
     <div className="Main">
       <div className="Users-List">
         {posts &&
           posts
             .map((post) => {
-              return <Posts key={post._id} post={post} />;
+              console.log(post);
+
+              return (
+                <Posts
+                  key={post._id}
+                  post={post}
+                  onRemoveClick={handlePostRemove}
+                />
+              );
             })
             .reverse()}
       </div>

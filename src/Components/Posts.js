@@ -1,17 +1,9 @@
 import React from "react";
 import "./CSS/Posts.css";
 
-export default function Posts({ post }) {
-  function handleDelete() {
-    const options = {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(post),
-    };
-
-    fetch(`http://localhost:3005/spark/${post._id}`, options).then(() =>
-      console.log(`Post  deleted`)
-    );
+export default function Posts({ post, onRemoveClick }) {
+  function handleDeleteClick() {
+    onRemoveClick(post);
   }
   return (
     <div className="Posts">
@@ -20,7 +12,7 @@ export default function Posts({ post }) {
         <p className="Posts_Text">{post.body}</p>
       </div>
       <div className="Buttons">
-        <button onClick={handleDelete} className="Button">
+        <button onClick={handleDeleteClick} className="Button">
           Delete
         </button>
         <button className="Button">Edit</button>
