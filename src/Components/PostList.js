@@ -22,10 +22,11 @@ export default function UserList() {
       body: JSON.stringify(post),
     };
 
-    console.log(post);
-
     fetch(`http://localhost:3005/spark/${post._id}`, options).then(() =>
-      console.log(`Post ${post._id} deleted`)
+      fetch("http://localhost:3005/spark", {
+        method: "GET",
+        "content-type": "application/json",
+      }).then(() => console.log(() => `Post ${post._id} deleted`))
     );
 
     setPosts(newPosts);
