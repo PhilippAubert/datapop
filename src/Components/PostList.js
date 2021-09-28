@@ -19,6 +19,7 @@ export default function UserList() {
     const newPosts = posts.filter((postItem) => {
       return postItem !== post;
     });
+
     const options = {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
@@ -32,7 +33,7 @@ export default function UserList() {
       })
         .then((response) => response.json())
         .then((posts) => setPosts(posts))
-        .then(() => console.log(`Post ${post.title} deleted`))
+        .then(() => console.log(`Post no. ${post.title} deleted`))
     );
 
     setPosts(newPosts);
