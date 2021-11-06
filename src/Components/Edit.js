@@ -2,13 +2,17 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 export default function Edit() {
-  const [post, setPost] = useState();
+  const [post, setPost] = useState({
+    id: "",
+    title: "",
+    body: "",
+    createdAt: "",
+  });
 
   useEffect(() => {
     fetch(`http://localhost:3005/spark/`)
       .then((response) => response.json())
-      .then((posts) => setPost(posts))
-      .then(console.log("post"));
+      .then((posts) => setPost(posts));
   }, []);
 
   return (

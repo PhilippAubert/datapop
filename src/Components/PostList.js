@@ -39,6 +39,10 @@ export default function UserList() {
     setPosts(newPosts);
   }
 
+  function switchToEdit(id) {
+    history.push(`/edit/${id}`);
+  }
+
   return (
     <div className="Main">
       <div className="Users-List">
@@ -46,13 +50,12 @@ export default function UserList() {
           posts
             .map((post) => {
               console.log(post);
-
               return (
                 <Posts
                   key={post._id}
                   post={post}
                   onRemoveClick={handlePostRemove}
-                  onEditClick={() => history.push(`/edit/${post._id}`)}
+                  onSwitchClick={switchToEdit}
                 />
               );
             })

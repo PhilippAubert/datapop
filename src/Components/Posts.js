@@ -1,9 +1,9 @@
 import React from "react";
 import "./CSS/Posts.css";
 
-export default function Posts({ post, onRemoveClick, onEditClick }) {
+export default function Posts({ post, onRemoveClick, onSwitchClick }) {
   function handleEditClick() {
-    onEditClick();
+    onSwitchClick(post._id);
   }
 
   function handleDeleteClick() {
