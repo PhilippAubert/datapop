@@ -1,7 +1,7 @@
 require("dotenv").config();
+require("./db/connect");
 const express = require("express");
 const cors = require("cors");
-const mongoose = require("mongoose");
 const app = express();
 const Spark = require("./models/spark.js");
 const Note = require("./models/notes.js");
@@ -164,17 +164,4 @@ app.delete("/notes/:id", (req, res) => {
       res.status(500);
       res.json({ error: "Internal server error" });
     });
-});
-
-mongoose.connect("mongodb://localhost/datapop", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-const db = mongoose.connection;
-
-db.on("open", () => {
-  app.listen(3005, () => {
-    console.log(`Listening on http://localhost:3005/spark`);
-  });
 });
