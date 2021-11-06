@@ -15,6 +15,7 @@ export default function Edit() {
     <div className="Main">
       <div className="Users-List">
         <h1>Edit Post</h1>
+        <p>{post}</p>
       </div>
     </div>
   );
