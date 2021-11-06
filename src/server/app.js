@@ -1,5 +1,5 @@
 require("dotenv").config();
-require("./db/connect");
+const connectDB = require("./db/connect");
 const express = require("express");
 const cors = require("cors");
 const app = express();
@@ -165,3 +165,16 @@ app.delete("/notes/:id", (req, res) => {
       res.json({ error: "Internal server error" });
     });
 });
+
+const port = 3005;
+
+const start = async () => {
+  try {
+    await connectDB(process.env.MONGO_URI);
+    app.listen(port, console.log(`server is listening on ${port}...`));
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+start();
