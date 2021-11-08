@@ -1,17 +1,17 @@
 import React from "react";
 import { useState } from "react";
-import { useParams } from "react-router";
+import { useParams, useHistory } from "react-router";
 
 import "./CSS/Input.css";
 
 export default function Edit({ postToEdit }) {
+  let history = useHistory();
   const { id } = useParams();
   const [post, setPost] = useState(
     postToEdit || {
-      id: " ",
-      title: " ",
+      title: "",
       body: "",
-      createdAt: "",
+      createdAt: "edited",
     }
   );
 
@@ -42,21 +42,29 @@ export default function Edit({ postToEdit }) {
     });
   }
 
+  function handleSwitch() {
+    history.push(`/list`);
+  }
+
   return (
     <div className="Main">
       <div className="About-List">
         <form onSubmit={submitForm} className="Input-Form">
-          <h2 className="Input-Form_Label">EDIT TITLE</h2>
+          <label>
+            <h2 className="Input-Form_Label">EDIT TITLE</h2>
+          </label>
           <input
             className="Input-Form_Input"
             type="text"
             id="title"
             name="title"
             value={post.title}
-            placeholder="EDIT TITLE"
+            placeholder="EDIT NOW"
             onChange={handleChange}
           />
-          <h2 className="Input-Form_Label">EDIT POST</h2>
+          <label>
+            <h2 className="Input-Form_Label">EDIT POST</h2>
+          </label>
           <textarea
             className="Input-Form_Textarea"
             type="text"
@@ -74,6 +82,9 @@ export default function Edit({ postToEdit }) {
           </button>
         </form>
       </div>
+      <button className="Input-Button GoBack" onClick={handleSwitch}>
+        <p>Back To List</p>
+      </button>
     </div>
   );
 }
