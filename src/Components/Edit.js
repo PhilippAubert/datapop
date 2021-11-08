@@ -1,25 +1,78 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useParams } from "react-router";
 
-export default function Edit() {
-  const [post, setPost] = useState({
-    id: "",
-    title: "",
-    body: "",
-    createdAt: "",
-  });
+import "./CSS/Input.css";
 
-  useEffect(() => {
-    fetch(`http://localhost:3005/spark/`)
-      .then((response) => response.json())
-      .then((posts) => setPost(posts));
-  }, []);
+export default function Edit({ postToEdit }) {
+  const { id } = useParams();
+  const [post, setPost] = useState(
+    postToEdit || {
+      id: " ",
+      title: " ",
+      body: "",
+      createdAt: "",
+    }
+  );
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setPost({ ...post, [name]: value });
+  }
+
+  function submitForm(event) {
+    event.preventDefault();
+    const stringifiedState = JSON.stringify({
+      id: post._id,
+      title: post.title,
+      body: post.body,
+    });
+    const options = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: stringifiedState,
+    };
+    fetch(`http://localhost:3005/spark/${id}`, options).then((res) => {
+      res
+        .json()
+        .then((updatedPost) => console.log(updatedPost))
+        .catch((error) => console.log(error));
+    });
+  }
 
   return (
     <div className="Main">
-      <div className="Users-List">
-        <h1>Edit Post</h1>
-        <p>{post}</p>
+      <div className="About-List">
+        <form onSubmit={submitForm} className="Input-Form">
+          <h2 className="Input-Form_Label">EDIT TITLE</h2>
+          <input
+            className="Input-Form_Input"
+            type="text"
+            id="title"
+            name="title"
+            value={post.title}
+            placeholder="EDIT TITLE"
+            onChange={handleChange}
+          />
+          <h2 className="Input-Form_Label">EDIT POST</h2>
+          <textarea
+            className="Input-Form_Textarea"
+            type="text"
+            id="body"
+            name="body"
+            value={post.body}
+            placeholder="WRITE POST HERE"
+            cols="30"
+            rows="10"
+            onChange={handleChange}
+          />
+          <h2 className="Input-Form_Label">PUBLISH</h2>
+          <button className="Input-Button" type="submit">
+            <p>SEND POST</p>
+          </button>
+        </form>
       </div>
     </div>
   );

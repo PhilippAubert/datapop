@@ -23,7 +23,7 @@ export default function App() {
           <Route path="/input">
             <Input />
           </Route>
-          <Route path="/edit">
+          <Route path="/edit/:id">
             <Edit />
           </Route>
         </Switch>
