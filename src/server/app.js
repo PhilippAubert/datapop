@@ -5,6 +5,7 @@ const cors = require("cors");
 const app = express();
 const Spark = require("./models/spark.js");
 const Note = require("./models/notes.js");
+const path = require("path");
 
 app.use(express.json());
 app.use(cors());
@@ -167,6 +168,13 @@ app.delete("/notes/:id", (req, res) => {
 });
 
 const port = 3005;
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("./build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "src", "build", "index.html"));
+  });
+}
 
 const start = async () => {
   try {
