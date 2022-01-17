@@ -22,16 +22,21 @@
   justify-content: center;
 }
 
-.Input-Form_Label {
+.Input-Form {
+  min-width: 14em;
+  max-width: 14em;
   display: flex;
+  align-items: center;
+  flex-direction: column;
   justify-content: center;
+}
+
+.Input-Form_Label {
   margin: 1.5rem 0;
 }
 
 .Input-Form_Input {
   outline: none;
-  display: flex;
-  justify-content: center;
   background-color: #000;
   color: #f2f;
   width: 100%;
@@ -47,7 +52,6 @@
 
 .Input-Button {
   outline: 0;
-  margin: 0 25vw;
   border: 2px solid #f2f;
   font-size: 1rem;
   color: #fff;

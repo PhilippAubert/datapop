@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router";
-
 import "./CSS/Input.css";
 
 export default function Edit({ postToEdit }) {
@@ -39,7 +38,7 @@ export default function Edit({ postToEdit }) {
   }
 
   function handleSwitch() {
-    history.push(`/list`);
+    history(`/list`);
   }
 
   return (
@@ -55,7 +54,6 @@ export default function Edit({ postToEdit }) {
             id="title"
             name="title"
             value={post.title}
-            placeholder="EDIT NOW"
             onChange={handleChange}
           />
           <label>
@@ -67,7 +65,6 @@ export default function Edit({ postToEdit }) {
             id="body"
             name="body"
             value={post.body}
-            placeholder="WRITE POST HERE"
             cols="30"
             rows="10"
             onChange={handleChange}
@@ -79,7 +76,7 @@ export default function Edit({ postToEdit }) {
         </form>
       </div>
       <button className="Input-Button GoBack" onClick={handleSwitch}>
-        <p>Back To List</p>
+        <p>BACK TO LIST </p>
       </button>
     </div>
   );
