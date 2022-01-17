@@ -8,11 +8,7 @@ export default function Edit({ postToEdit }) {
   let history = useHistory();
   const { id } = useParams();
   const [post, setPost] = useState(
-    postToEdit || {
-      title: "",
-      body: "",
-      createdAt: "edited",
-    }
+    postToEdit || { id: "", title: "", body: "" }
   );
 
   function handleChange(event) {
