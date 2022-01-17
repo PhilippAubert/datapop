@@ -1,12 +1,12 @@
 import "./CSS/Users.css";
 import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Posts from "./Posts.js";
 
 export default function UserList() {
   const [posts, setPosts] = useState();
 
-  let history = useHistory();
+  let history = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:3005/spark")

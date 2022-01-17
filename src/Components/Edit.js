@@ -1,14 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import { useParams, useHistory } from "react-router";
+import { useParams, useNavigate } from "react-router";
 
 import "./CSS/Input.css";
 
 export default function Edit({ postToEdit }) {
-  let history = useHistory();
+  let history = useNavigate();
   const { id } = useParams();
   const [post, setPost] = useState(
-    postToEdit || { id: "", title: "", body: "" }
+    postToEdit || { id: post._id, title: post.title, body: post.body }
   );
 
   function handleChange(event) {

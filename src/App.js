@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header.js";
 import Input from "./Components/Input.js";
 import PostList from "./Components/PostList.js";
@@ -11,24 +11,16 @@ import "./App.css";
 export default function App() {
   return (
     <div className="App">
-      <Router>
+      <BrowserRouter>
         <Header />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/list">
-            <PostList />
-          </Route>
-          <Route path="/input">
-            <Input />
-          </Route>
-          <Route path="/edit/:id">
-            <Edit />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/list" element={<PostList />} />
+          <Route path="/input" element={<Input />} />
+          <Route path="/edit/:id" element={<Edit />} />
+        </Routes>
         <Footer />
-      </Router>
+      </BrowserRouter>
     </div>
   );
 }
