@@ -13,7 +13,7 @@ export default function Edit({ postToEdit }) {
 
   function handleChange(event) {
     const { name, value } = event.target;
-    setPost({ ...post, [name]: value });
+    setPost({ ...postToEdit, [name]: value });
   }
 
   function submitForm(event) {
