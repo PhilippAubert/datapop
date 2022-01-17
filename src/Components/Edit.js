@@ -8,7 +8,7 @@ export default function Edit({ postToEdit }) {
   let history = useNavigate();
   const { id } = useParams();
   const [post, setPost] = useState(
-    postToEdit || { id: post._id, title: post.title, body: post.body }
+    postToEdit || { id: "", title: " ", body: " " }
   );
 
   function handleChange(event) {

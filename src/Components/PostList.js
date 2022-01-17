@@ -40,7 +40,7 @@ export default function UserList() {
   }
 
   function switchToEdit(id) {
-    history.push(`/edit/${id}`);
+    history(`/edit/${id}`);
   }
 
   return (
