@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router";
 import "./CSS/Input.css";
 
 export default function Edit({ postToEdit }) {
-  let history = useNavigate();
+  let navigate = useNavigate();
   const { id } = useParams();
   const [post, setPost] = useState(
     postToEdit || { id: "", title: " ", body: " " }
@@ -38,7 +38,7 @@ export default function Edit({ postToEdit }) {
   }
 
   function handleSwitch() {
-    history(`/list`);
+    navigate(`/list`);
   }
 
   return (

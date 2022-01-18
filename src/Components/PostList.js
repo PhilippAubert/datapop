@@ -6,7 +6,7 @@ import Posts from "./Posts.js";
 export default function UserList() {
   const [posts, setPosts] = useState();
 
-  let history = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:3005/spark")
@@ -40,7 +40,7 @@ export default function UserList() {
   }
 
   function switchToEdit(id) {
-    history(`/edit/${id}`);
+    navigate(`/edit/${id}`);
   }
 
   return (
