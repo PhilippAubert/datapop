@@ -1,10 +1,11 @@
 require("dotenv").config();
+const connectDB = require("./db/connect.js");
 const express = require("express");
 const cors = require("cors");
-const mongoose = require("mongoose");
 const app = express();
 const Spark = require("./models/spark.js");
 const Note = require("./models/notes.js");
+const path = require("path");
 
 app.use(express.json());
 app.use(cors());
@@ -166,15 +167,22 @@ app.delete("/notes/:id", (req, res) => {
     });
 });
 
-mongoose.connect("mongodb://localhost/datapop", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const port = 3005;
 
-const db = mongoose.connection;
-
-db.on("open", () => {
-  app.listen(3005, () => {
-    console.log(`Listening on http://localhost:3005/spark`);
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("./build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "src", "build", "index.html"));
   });
-});
+}
+
+const start = async () => {
+  try {
+    await connectDB(process.env.MONGO_URI);
+    app.listen(port, console.log(`server is listening on ${port}...`));
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+start();

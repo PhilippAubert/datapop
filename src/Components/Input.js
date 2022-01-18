@@ -3,10 +3,7 @@ import "./CSS/Input.css";
 import { useState } from "react";
 
 export default function Input() {
-  const [post, setPost] = useState({
-    title: "",
-    body: "",
-  });
+  const [post, setPost] = useState({});
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -25,8 +22,8 @@ export default function Input() {
     fetch("http://localhost:3005/spark", options)
       .then((response) => {
         response.json();
+        console.log(response);
       })
-      .then((updatedPost) => console.log(updatedPost))
       .catch((error) => console.log(error));
   }
 
