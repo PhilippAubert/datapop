@@ -1,14 +1,15 @@
 import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
-import { Spark } from "./models/spark.js";
-import { Note } from "./models/notes.js"
+//import { Spark } from "./models/spark.js";
+// import { Note } from "./models/notes.js"
 
 const app = express();
 
+
 dotenv.config();
 
-const path = require("path");
+const port = process.env.PORT;
 
 app.use(express.json());
 app.use(cors());
@@ -17,7 +18,7 @@ app.use((req, res, next) => {
   console.log(`${method} ${url}`);
   next();
 });
-
+/* 
 // POST REQUESTS
 
 app.post("/spark", (req, res) => {
@@ -169,7 +170,7 @@ app.delete("/notes/:id", (req, res) => {
       res.json({ error: "Internal server error" });
     });
 });
-
+ */
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("./build"));
