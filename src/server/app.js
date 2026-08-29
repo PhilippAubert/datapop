@@ -1,10 +1,13 @@
-require("dotenv").config();
-const connectDB = require("./db/connect.js");
-const express = require("express");
-const cors = require("cors");
+import dotenv from "dotenv";
+import express from "express";
+import cors from "cors";
+import { Spark } from "./models/spark.js";
+import { Note } from "./models/notes.js"
+
 const app = express();
-const Spark = require("./models/spark.js");
-const Note = require("./models/notes.js");
+
+dotenv.config();
+
 const path = require("path");
 
 app.use(express.json());
@@ -167,7 +170,6 @@ app.delete("/notes/:id", (req, res) => {
     });
 });
 
-const port = 3005;
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("./build"));
@@ -178,7 +180,7 @@ if (process.env.NODE_ENV === "production") {
 
 const start = async () => {
   try {
-    await connectDB(process.env.MONGO_URI);
+    //await connectDB(process.env.MONGO_URI);
     app.listen(port, console.log(`server is listening on ${port}...`));
   } catch (error) {
     console.error(error);

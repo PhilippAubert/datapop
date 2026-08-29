@@ -1,10 +1,10 @@
-const mongoose = require('mongoose'); 
+import mongoose from "mongoose";
 
-const {Schema} = mongoose; 
+const { Schema } = mongoose; 
 
 const PostSchema = new Schema({
     
-    db:String, 
+    db: String, 
     title: String, 
     body: String, 
     votes: {
@@ -17,5 +17,4 @@ const PostSchema = new Schema({
     versionKey: false 
 }); 
 
-
-module.exports = mongoose.model('Note', PostSchema); 
+export const Note = mongoose.model("Spark", PostSchema);
