@@ -1,7 +1,10 @@
-import "./CSS/Users.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 import Posts from "./Posts.js";
+
+import "./CSS/Users.css";
+
 
 export default function UserList() {
   const [posts, setPosts] = useState();
@@ -9,10 +12,12 @@ export default function UserList() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3005/spark")
+    fetch("http:/${process.env.IP}/:3000/")
       .then((response) => response.json())
-      .then((posts) => setPosts(posts));
+      .then((posts) => setPosts(posts))
+      .catch((error)=>console.log(error));
   }, []);
+
 
   function handlePostRemove(post) {
     console.log(` deleting post ${post.title}`);
@@ -59,7 +64,8 @@ export default function UserList() {
                 />
               );
             })
-            .reverse()}
+            .reverse() || 
+            <div>NOTHING TO BE FOUND!</div>}
       </div>
     </div>
   );
