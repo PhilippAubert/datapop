@@ -2,7 +2,7 @@
   "name": "datapop",
   "version": "0.1.0",
   "private": true,
-  "scripts":{
+  "scripts": {
     "start": "npm start",
     "dev": "nodemon app.js"
   },
@@ -11,7 +11,7 @@
     "dotenv": "^14.1.0",
     "express": "^4.17.2",
     "mongoose": "^6.1.6",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.22"
   },
   "type": "module"
 }
