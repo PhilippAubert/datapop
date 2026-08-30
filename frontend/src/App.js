@@ -1,7 +1,11 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { 
+  BrowserRouter, 
+  Routes, 
+  Route 
+} from "react-router-dom";
 
-import Header from "./Components/Header.js";
+import Header from "./Components/Header/Header.js";
 import Input from "./Components/Input.js";
 import PostList from "./Components/PostList.js";
 import Home from "./Components/Home.js";
