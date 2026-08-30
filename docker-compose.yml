@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  server:
+    build: ./server
+    container_name: datapop_backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./server:/app
+      - /app/node_modules 
+    env_file:
+      - ./server/.env  
+    environment:
+      - MONGO_URI=mongodb://database:27017/datapop
+      - PORT=3000 
+
+  frontend:
+    build: ./frontend
+    container_name: datapop_frontend
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - CI=true
+    stdin_open: true
+    tty: true

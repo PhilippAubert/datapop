@@ -1,6 +1,7 @@
 import React from "react";
 import Sketch from "react-p5";
 import SimplexNoise from "simplex-noise";
+
 import "./CSS/Home.css";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
   let maxAmplitude = 0.5;
   const canvasWidth = 375;
   const canvasHeight = 445;
+
 
   // Included in index.html
   // This is an alternative to p5.js builtin 'noise' function,
