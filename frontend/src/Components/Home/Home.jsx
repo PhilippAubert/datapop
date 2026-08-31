@@ -22,15 +22,12 @@ export const Home = () => {
 
   useEffect(() => {
     if (canvasRef.current) {
-      const noiseWidth = canvasRef.current.getBoundingClientRect().width;
-      const noiseTop = canvasRef.current.getBoundingClientRect().top;
-      
-      const calculatedHeight = window.innerHeight - (noiseTop * 2);
-      const calculatedWidth = noiseWidth;
+      const calculatedWidth = canvasRef.current.clientWidth;
+      const calculatedHeight = canvasRef.current.clientHeight;
 
       setDimensions({ width: calculatedWidth, height: calculatedHeight });
-    }
-  }, []);
+  }
+}, []);
 
   const setup = (p5, canvasParentRef) => {
     p5.createCanvas(dimensions.width, dimensions.height).parent(canvasParentRef);
