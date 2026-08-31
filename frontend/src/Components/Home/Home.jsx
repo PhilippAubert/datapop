@@ -22,7 +22,7 @@ export const Home = () => {
     const noiseTop = canvasRef.current.getBoundingClientRect().top;
     canvasHeight = window.innerHeight - (noiseTop * 2);
     canvasWidth = noiseWidth;
-  },[canvasRef])
+  })
 
   // Included in index.html
   // This is an alternative to p5.js builtin 'noise' function,
