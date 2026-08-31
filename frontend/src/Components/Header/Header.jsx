@@ -11,13 +11,13 @@ export default function Header() {
       </div>
       <div className="nav">
         <NavLink to="/">
-          <h2 className="nav-element">START</h2>{" "}
+          <h2 className="nav-element">COVER</h2>
         </NavLink>
         <NavLink to="/list">
-          <h2 className="nav-element">POSTS</h2>{" "}
+          <h2 className="nav-element">POSTS</h2>
         </NavLink>
         <NavLink to="/input">
-          <h2 className="nav-element">WRITE</h2>{" "}
+          <h2 className="nav-element">WRITE</h2>
         </NavLink>
       </div>
     </div>

@@ -5,12 +5,12 @@ import {
   Route 
 } from "react-router-dom";
 
-import Header from "./Components/Header/Header.js";
-import Input from "./Components/Input.js";
-import PostList from "./Components/PostList.js";
-import Home from "./Components/Home.js";
-import Edit from "./Components/Edit.js";
-import Footer from "./Components/Footer.js";
+import Header from "./Components/Header/Header.jsx";
+import Input from "./Components/Input.jsx";
+import PostList from "./Components/PostList.jsx";
+import Home from "./Components/Home.jsx";
+import Edit from "./Components/Edit.jsx";
+import Footer from "./Components/Footer.jsx";
 
 import "./App.css";
 

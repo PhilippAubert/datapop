@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Posts from "./Posts.js";
-
-import "./CSS/Users.css";
-
+import Posts from "./Posts.jsx";
 
 export default function UserList() {
   const [posts, setPosts] = useState();
