@@ -24,7 +24,7 @@ export const Home = () => {
     if (canvasRef.current) {
       const calculatedWidth = canvasRef.current.clientWidth;
       const calculatedHeight = canvasRef.current.clientHeight;
-
+      console.log("Calculated Height", calculatedHeight);
       setDimensions({ width: calculatedWidth, height: calculatedHeight });
   }
 }, []);

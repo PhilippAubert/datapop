@@ -5,30 +5,36 @@
   background-color: black;
   display: flex;
   flex-direction: column;
-  align-items: space-between;
-  justify-content: space-between;
-  padding: 4px;
 }
 
 .header__hero {
   box-sizing:border-box;
   display: flex;
   justify-content: center;
-  padding:4px;
 }
 
 .header__headline {
+  display:flex;
+  align-items: center;
+  justify-content: center;
   color: #f00;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 64px;
+  letter-spacing: 0.1ch;
+  padding: 2px;
 }
 
 .nav {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   text-decoration: none;
-  gap:8px;
 }
 
 .nav-element {
   color: #0ff;
+  font-size:22px;
+  font-weight:800;
 }
 
