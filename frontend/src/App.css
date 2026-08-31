@@ -7,7 +7,7 @@
 
 .App {
   display: grid;
-  grid-template-rows: 20vh 70vh 10vh;
+  grid-template-rows: 15vh 70vh 15vh;
   grid-template-columns: 0 auto 0;
   background-color: #000;
 }
