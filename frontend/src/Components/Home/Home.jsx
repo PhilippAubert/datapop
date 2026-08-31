@@ -1,42 +1,42 @@
-import React, { useEffect, useRef } from "react";
+import React, { 
+  useEffect, 
+  useRef, 
+  useState } 
+from "react";
+
 import Sketch from "react-p5";
 import SimplexNoise from "simplex-noise";
 
 import "./Home.css";
 
 export const Home = () => {
+  const minFrequency = 0.5;
+  const maxFrequency = 2;
+  const minAmplitude = 0.05;
+  const maxAmplitude = 0.5;
 
-  let minFrequency = 0.5;
-  let maxFrequency = 2;
-  let minAmplitude = 0.05;
-  let maxAmplitude = 0.5;
-  let canvasWidth;
-  let canvasHeight;
-
-  // canvasHeight IS window-height - header - footer 
-
-  const canvasRef = useRef();
+  const [dimensions, setDimensions] = useState(null);
+  const canvasRef = useRef(null);
+  
+  const simplexRef = useRef(new SimplexNoise());
 
   useEffect(() => {
-    const noiseWidth = canvasRef.current.getBoundingClientRect().width;
-    const noiseTop = canvasRef.current.getBoundingClientRect().top;
-    canvasHeight = window.innerHeight - (noiseTop * 2);
-    canvasWidth = noiseWidth;
-  })
+    if (canvasRef.current) {
+      const noiseWidth = canvasRef.current.getBoundingClientRect().width;
+      const noiseTop = canvasRef.current.getBoundingClientRect().top;
+      
+      const calculatedHeight = window.innerHeight - (noiseTop * 2);
+      const calculatedWidth = noiseWidth;
 
-  // Included in index.html
-  // This is an alternative to p5.js builtin 'noise' function,
-  // It provides 4D noise and returns a value between -1 and 1
-
-  const simplex = new SimplexNoise();
+      setDimensions({ width: calculatedWidth, height: calculatedHeight });
+    }
+  }, []);
 
   const setup = (p5, canvasParentRef) => {
-    // use parent to render the canvas in this ref
-    // (without that p5 will render the canvas outside of your component)
-    p5.createCanvas(canvasWidth, canvasHeight).parent(canvasParentRef);
+    p5.createCanvas(dimensions.width, dimensions.height).parent(canvasParentRef);
 
-    p5.mouseX = canvasWidth / 7;
-    p5.mouseY = canvasHeight / 7;
+    p5.mouseX = dimensions.width / 7;
+    p5.mouseY = dimensions.height / 7;
   };
 
   const draw = (p5) => {
@@ -45,34 +45,31 @@ export const Home = () => {
     const frequency = p5.lerp(
       minFrequency,
       maxFrequency,
-      p5.mouseX / canvasWidth
+      p5.mouseX / dimensions.width
     );
     const amplitude = p5.lerp(
       minAmplitude,
       maxAmplitude,
-      p5.mouseY / canvasHeight
+      p5.mouseY / dimensions.height
     );
 
-    const dim = Math.min(canvasWidth, canvasHeight);
+    const dim = Math.min(dimensions.width, dimensions.height);
 
-    // Draw the background
     p5.noFill();
     p5.stroke(255);
     p5.strokeWeight(dim * 0.0075);
 
     const time = p5.millis() / 1000;
-    const rows = 200;
+    const rows = 150;
 
-    // Draw each line
     for (let y = 0; y < rows; y++) {
-      // Determine the Y position of the line
       const v = rows <= 1 ? 0.5 : y / (rows - 1);
-      const py = v * canvasHeight;
+      const py = v * dimensions.height;
       drawNoiseLine({
         v,
         start: [0, py],
-        end: [canvasWidth, py],
-        amplitude: amplitude * canvasHeight,
+        end: [dimensions.width, py],
+        amplitude: amplitude * dimensions.height,
         frequency,
         time: time * 0.01,
         steps: 500,
@@ -96,34 +93,22 @@ export const Home = () => {
     const [xStart, yStart] = start;
     const [xEnd, yEnd] = end;
 
-    // Create a line by walking N steps and interpolating
-    // from start to end point at each interval
     p5.beginShape();
     for (let i = 0; i < steps; i++) {
-      // Get interpolation factor between 0..1
       const t = steps <= 1 ? 1.5 : i / (steps - 1);
-
-      // Interpolate X position
       const x = p5.lerp(xStart, xEnd, t);
-
-      // Interpolate Y position
       let y = p5.lerp(yStart, yEnd, t);
 
-      // Offset Y position by noise
-      y +=
-        simplex.noise3D(t * frequency + time, v * frequency, time) * amplitude;
+      y += simplexRef.current.noise3D(t * frequency + time, v * frequency, time) * amplitude;
 
-      // Place vertex
       p5.vertex(x, y);
     }
     p5.endShape();
   };
 
   return (
-    <div 
-      ref={canvasRef}
-      className="main">
-        <Sketch setup={setup} draw={draw} />
+    <div ref={canvasRef} className="main">
+      {dimensions && <Sketch setup={setup} draw={draw} />}
     </div>
   );
-}
+};
