@@ -1,17 +1,28 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Sketch from "react-p5";
 import SimplexNoise from "simplex-noise";
 
 import "./Home.css";
 
-export default function Home() {
+export const Home = () => {
+
   let minFrequency = 0.5;
   let maxFrequency = 4;
   let minAmplitude = 0.05;
   let maxAmplitude = 0.5;
-  const canvasWidth = 375;
-  const canvasHeight = 445;
+  let canvasWidth = 375;
+  let canvasHeight = 445;
 
+  // canvasHeight IS window-height - header - footer 
+
+  const canvasRef = useRef();
+
+  useEffect(() => {
+    const noiseWidth = canvasRef.current.getBoundingClientRect().width;
+    const noiseTop = canvasRef.current.getBoundingClientRect().top;
+    canvasHeight = window.innerHeight - (noiseTop * 2) - 15;
+    canvasWidth = noiseWidth - 1;
+  },[])
 
   // Included in index.html
   // This is an alternative to p5.js builtin 'noise' function,
@@ -109,10 +120,10 @@ export default function Home() {
   };
 
   return (
-    <div className="Main">
-      <div className="Canvas">
+    <div 
+      ref={canvasRef}
+      className="main">
         <Sketch setup={setup} draw={draw} />
-      </div>
     </div>
   );
 }
