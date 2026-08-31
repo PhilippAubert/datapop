@@ -7,11 +7,11 @@ import "./Home.css";
 export const Home = () => {
 
   let minFrequency = 0.5;
-  let maxFrequency = 4;
+  let maxFrequency = 2;
   let minAmplitude = 0.05;
   let maxAmplitude = 0.5;
-  let canvasWidth = 375;
-  let canvasHeight = 445;
+  let canvasWidth;
+  let canvasHeight;
 
   // canvasHeight IS window-height - header - footer 
 
@@ -20,9 +20,9 @@ export const Home = () => {
   useEffect(() => {
     const noiseWidth = canvasRef.current.getBoundingClientRect().width;
     const noiseTop = canvasRef.current.getBoundingClientRect().top;
-    canvasHeight = window.innerHeight - (noiseTop * 2) - 15;
-    canvasWidth = noiseWidth - 1;
-  },[])
+    canvasHeight = window.innerHeight - (noiseTop * 2);
+    canvasWidth = noiseWidth;
+  },[canvasRef])
 
   // Included in index.html
   // This is an alternative to p5.js builtin 'noise' function,
@@ -61,7 +61,7 @@ export const Home = () => {
     p5.strokeWeight(dim * 0.0075);
 
     const time = p5.millis() / 1000;
-    const rows = 220;
+    const rows = 200;
 
     // Draw each line
     for (let y = 0; y < rows; y++) {
