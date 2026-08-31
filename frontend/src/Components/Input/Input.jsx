@@ -1,8 +1,10 @@
 import React from "react";
-import "./Input.css";
 import { useState } from "react";
 
-export default function Input() {
+import "./Input.css";
+
+export const Input = () => {
+
   const [post, setPost] = useState({});
 
   function handleChange(event) {
@@ -28,12 +30,12 @@ export default function Input() {
   }
 
   return (
-    <div className="Main">
-      <div className="About-List">
-        <form onSubmit={handleSubmitPost} className="Input-Form">
-          <h2 className="Input-Form_Label">ENTER TITLE</h2>
+    <div className="main">
+      <div className="command--area">
+        <form onSubmit={handleSubmitPost} className="input--form">
+          <h2 className="input--form__label">ENTER TITLE</h2>
           <input
-            className="Input-Form_Input"
+            className="input--form__input"
             type="text"
             id="title"
             name="title"
@@ -42,20 +44,20 @@ export default function Input() {
             onChange={handleChange}
             required
           />
-          <h2 className="Input-Form_Label">ENTER POST</h2>
+          <h2 className="input--form__label">ENTER POST</h2>
           <textarea
-            className="Input-Form_Textarea"
+            className="input-form_textarea"
             type="text"
             id="text"
             name="body"
             value={post.body}
             placeholder="WRITE POST HERE"
-            cols="30"
-            rows="10"
+            cols="45"
+            rows="30"
             onChange={handleChange}
           />
-          <h2 className="Input-Form_Label">PUBLISH</h2>
-          <button className="Input-Button" type="submit">
+          <h2 className="input--form__label">PUBLISH</h2>
+          <button className="input-button" type="submit">
             <p>SEND POST</p>
           </button>
         </form>

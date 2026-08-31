@@ -1,68 +1,24 @@
-.Main {
-  grid-row: 2/3;
-  grid-column: 2/3;
+.main {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
 
-.About-List {
-  color: white;
+.command--area {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  justify-content: space-between;
 }
 
-.About-List__Headline {
-  font-size: 1.8rem;
-}
-
-.Input-Area {
+.input--form {
+  height: 100%;
   display: flex;
-  justify-content: center;
-}
-
-.Input-Form {
-  min-width: 14em;
-  max-width: 14em;
-  display: flex;
-  align-items: center;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
 }
 
-.Input-Form_Label {
-  margin: 1.5rem 0;
-}
-
-.Input-Form_Input {
-  outline: none;
-  background-color: #000;
-  color: #f2f;
-  width: 100%;
-}
-
-.Input-Form_Textarea {
-  outline: none;
-  resize: none;
-  background-color: #000;
-  color: #f2f;
-  width: 100%;
-}
-
-.Input-Button {
-  outline: 0;
-  border: 2px solid #f2f;
-  font-size: 1rem;
+.input--form__label {
   color: #fff;
-  background-color: #000;
-}
-
-.Input-Button p {
-  margin: 0;
-  color: #fff;
-}
-
-.GoBack {
-  margin-top: 3vh;
 }
