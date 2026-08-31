@@ -2,7 +2,7 @@ import React from "react";
 import Sketch from "react-p5";
 import SimplexNoise from "simplex-noise";
 
-import ".Home.css";
+import "./Home.css";
 
 export default function Home() {
   let minFrequency = 0.5;

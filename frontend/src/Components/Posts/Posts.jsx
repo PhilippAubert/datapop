@@ -1,5 +1,5 @@
 import React from "react";
-import "./CSS/Posts.css";
+import "./Posts.css";
 
 export default function Posts({ post, onRemoveClick, onSwitchClick }) {
   function handleEditClick() {
