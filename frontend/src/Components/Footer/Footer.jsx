@@ -1,11 +1,12 @@
 import React from "react";
-import "./CSS/Footer.css";
+
+import "./Footer.css";
 
 export default function Footer() {
   return (
     <div className="Footer">
       <div className="Editorial">
-        <p className="Editorial-Text">PHILIPP AUBERT 2022</p>
+        <p className="Editorial-Text">UJIN 22</p>
       </div>
     </div>
   );

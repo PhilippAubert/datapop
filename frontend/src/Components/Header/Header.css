@@ -1,31 +1,34 @@
-.Header {
+.header {
+  box-sizing:border-box;
   grid-column: 2/3;
   grid-row: 1/2;
   background-color: black;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: space-between;
+  justify-content: space-between;
+  padding: 4px;
 }
 
-.HERO {
+.header__hero {
+  box-sizing:border-box;
   display: flex;
   justify-content: center;
-  margin: 1rem;
-  color: #0ff;
+  padding:4px;
 }
 
-.Nav {
+.header__headline {
+  color: #f00;
+}
+
+.nav {
   display: flex;
   justify-content: space-around;
   text-decoration: none;
+  gap:8px;
 }
 
-.Nav p {
-  margin: 0;
+.nav-element {
   color: #0ff;
 }
 
-.Nav a {
-  margin: 0 2rem;
-  text-decoration: none;
-}

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router";
-import "./CSS/Input.css";
+//import "./CSS/Input.css";
 
 export default function Edit({ postToEdit }) {
   let navigate = useNavigate();

@@ -1,11 +1,17 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./Components/Header.js";
-import Input from "./Components/Input.js";
-import PostList from "./Components/PostList.js";
-import Home from "./Components/Home.js";
-import Edit from "./Components/Edit.js";
-import Footer from "./Components/Footer.js";
+import { 
+  BrowserRouter, 
+  Routes, 
+  Route 
+} from "react-router-dom";
+
+import Header from "./Components/Header/Header.jsx";
+import Input from "./Components/Input/Input.jsx";
+import PostList from "./Components/Posts/PostList.jsx";
+import { Home } from "./Components/Home/Home.jsx";
+import Edit from "./Components/Edit/Edit.jsx";
+import Footer from "./Components/Footer/Footer.jsx";
+
 import "./App.css";
 
 export default function App() {

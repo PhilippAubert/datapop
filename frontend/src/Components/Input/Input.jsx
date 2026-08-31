@@ -1,5 +1,5 @@
 import React from "react";
-import "./CSS/Input.css";
+import "./Input.css";
 import { useState } from "react";
 
 export default function Input() {
