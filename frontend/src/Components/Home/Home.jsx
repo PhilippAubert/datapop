@@ -35,8 +35,8 @@ export const Home = () => {
     // (without that p5 will render the canvas outside of your component)
     p5.createCanvas(canvasWidth, canvasHeight).parent(canvasParentRef);
 
-    p5.mouseX = canvasWidth / 16;
-    p5.mouseY = canvasHeight / 16;
+    p5.mouseX = canvasWidth / 7;
+    p5.mouseY = canvasHeight / 7;
   };
 
   const draw = (p5) => {
@@ -57,11 +57,11 @@ export const Home = () => {
 
     // Draw the background
     p5.noFill();
-    p5.stroke(355);
+    p5.stroke(255);
     p5.strokeWeight(dim * 0.0075);
 
-    const time = p5.millis() / 1900;
-    const rows = 100;
+    const time = p5.millis() / 1000;
+    const rows = 220;
 
     // Draw each line
     for (let y = 0; y < rows; y++) {
@@ -74,8 +74,8 @@ export const Home = () => {
         end: [canvasWidth, py],
         amplitude: amplitude * canvasHeight,
         frequency,
-        time: time * 0.3,
-        steps: 200,
+        time: time * 0.01,
+        steps: 500,
         p5,
       });
     }
@@ -87,7 +87,7 @@ export const Home = () => {
       start,
       end,
       steps = 1400,
-      frequency = 1000,
+      frequency = 5000,
       time = 1,
       amplitude = 0.1,
       p5,
