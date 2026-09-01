@@ -40,8 +40,6 @@ export const Input = () => {
             name="body"
             value={post.body}
             placeholder="WRITE POST HERE"
-            cols="45"
-            rows="30"
             onChange={handleChange}
           />
           <h2 className="input--form__label">PUBLISH</h2>

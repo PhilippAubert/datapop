@@ -1,19 +1,17 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
 .command--area {
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .input--form {
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
