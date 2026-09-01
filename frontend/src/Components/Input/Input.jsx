@@ -10,9 +10,6 @@ export const Input = () => {
 		post: ""
 	});
 
-	const titleIsInvalid = values.title.length === 0;
-
-
 	const handleValueChange = (identifier, value) => {
 		setValues(prev => ({
 			...prev,
@@ -37,10 +34,10 @@ export const Input = () => {
 	return (
 		<div className="main">
 			<form
-				className="input--form"
+				className="input--form__container"
 				onSubmit={handleSubmit}
 			>
-				<div>
+				<div className="input--form">
 					<label htmlFor="title" className="input--form__label">ENTER TITLE</label>
 					<input
 						className="input--form__input"
@@ -51,22 +48,21 @@ export const Input = () => {
 						placeholder="ENTER TITLE"
 						onChange={(event) => handleValueChange("title", event.target.value)}
 					/>
-					{titleIsInvalid &&
+					{/* 			{titleIsInvalid &&
 						<div className="control-error"><p>Invalid Title</p></div>
-					}
+					} */}
 					<button
 						onClick={() => handleReset("title")}
 						type="button"
-						className="input-button"
+						className="input--button"
 					>
 						RESET
 					</button>
-
 				</div>
-				<div>
+				<div className="input--form">
 					<label htmlFor="post" className="input--form__label">ENTER POST</label>
 					<textarea
-						className="input-form_textarea"
+						className="input--form__textarea"
 						id="post"
 						name="post"
 						value={values.post}
@@ -76,12 +72,12 @@ export const Input = () => {
 					<button
 						onClick={() => handleReset("post")}
 						type="button"
-						className="input-button"
+						className="input--button"
 					>
 						RESET
 					</button>
 					<p className="input--form__label">PUBLISH</p>
-					<button type="submit" className="input-button">
+					<button type="submit" className="input--button">
 						SEND POST
 					</button>
 				</div>

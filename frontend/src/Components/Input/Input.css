@@ -1,22 +1,56 @@
 .main {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
+  padding: 8px;
 }
 
-.command--area {
+.input--form__container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  color: #fff;
+  width: 100%;
+  gap: 16px;
+  height: 100%;
 }
 
 .input--form {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.input--form:last-of-type {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .input--form__label {
-  color: #fff;
+  font-size: 24px;
+}
+
+.input--form__input {
+  font-size: 22px;
+}
+
+.input--form__textarea {
+  font-size: 22px;
+  flex-grow: 1; 
+  min-height: 150px;
+  resize: vertical;
+}
+
+.input--button {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 20px;
+  width: fit-content;
+  padding: 2px 4px;
+  outline: none;
+  color: #000;
+  background-color: #fff;
 }

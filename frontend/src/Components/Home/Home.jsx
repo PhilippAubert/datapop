@@ -22,7 +22,7 @@ export const Home = () => {
 
     useEffect(() => {
         if (canvasRef.current) {
-            const calculatedWidth = canvasRef.current.clientWidth;
+            const calculatedWidth = canvasRef.current.clientWidth - 16;
             const calculatedHeight = canvasRef.current.clientHeight;
             setDimensions({ width: calculatedWidth, height: calculatedHeight });
         }
