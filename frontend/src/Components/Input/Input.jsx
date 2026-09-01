@@ -4,57 +4,76 @@ import { useState } from "react";
 import "./Input.css";
 
 export const Input = () => {
-
   const [values, setValues] = useState({
-      title:"",
-      post: ""
-  })
+    title: "",
+    post: ""
+  });
 
-  const handleValueChange = (identifier, event) => {
+  const handleValueChange = (identifier, value) => {
     setValues(prev => ({
       ...prev, 
-      [identifier]:event.target.value
+      [identifier]: value
     }));
-  }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  }
+    const fd = new FormData(event.target);
+    const stateObject = Object.fromEntries(fd.entries());
+    setValues(stateObject);
+  };
+
+  const handleReset = (identifier) => {
+    setValues((prev => ({
+      ...prev, 
+      [identifier]: ""
+    })));
+  };
 
   return (
     <div className="main">
-        <form 
-          onSubmit={handleSubmit}
-          className="input--form">
-          <label htmlFor="title" className="input--form__label">ENTER TITLE</label>
-          <input
-            className="input--form__input"
-            type="text"
-            id="title"
-            name="title"
-            value={values.title}
-            placeholder="ENTER TITLE"
-            onChange={(event)=>handleValueChange("title", event)}
-          />
-          <label className="input--form__label">ENTER POST</label>
-          <textarea
-            htmlFor="post"
-            className="input-form_textarea"
-            type="text"
-            id="post"
-            name="post"
-            value={values.post}
-            placeholder="WRITE POST HERE"
-            onChange={(event)=>handleValueChange("post", event)}
-          />
-          <p className="input--form__label">PUBLISH</p>
-          <button 
-            type="submit"
-            className="input-button"
-          >
-            <p>SEND POST</p>
-          </button>
-        </form>
-      </div>
+      <form 
+        onSubmit={handleSubmit}
+        className="input--form"
+      >
+        <label htmlFor="title" className="input--form__label">ENTER TITLE</label>
+        <input
+          className="input--form__input"
+          type="text"
+          id="title"
+          name="title"
+          value={values.title}
+          placeholder="ENTER TITLE"
+          onChange={(event) => handleValueChange("title", event.target.value)}
+        />
+        <button 
+          onClick={()=>handleReset("title")}
+          type="button" 
+          className="input-button"
+        >
+          RESET
+        </button>
+        <label htmlFor="post" className="input--form__label">ENTER POST</label>
+        <textarea
+          className="input-form_textarea"
+          id="post"
+          name="post"
+          value={values.post}
+          placeholder="WRITE POST HERE"
+          onChange={(event) => handleValueChange("post", event.target.value)}
+        />
+        <button 
+          onClick={()=>handleReset("post")}
+          type="button" 
+          className="input-button"
+        >
+          RESET
+        </button>
+        <p className="input--form__label">PUBLISH</p>
+        <button type="submit" className="input-button">
+          SEND POST
+        </button>
+      </form>
+    </div>
   );
-}
+};
