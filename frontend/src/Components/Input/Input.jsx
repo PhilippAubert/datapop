@@ -1,65 +1,111 @@
 import React from "react";
-import "./Input.css";
 import { useState } from "react";
 
-export default function Input() {
-  const [post, setPost] = useState({});
+import "./Input.css";
 
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setPost({ ...post, [name]: value });
-  }
+export const Input = () => {
 
-  function handleSubmitPost(event) {
-    event.preventDefault();
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ title: post.title, body: post.body }),
-    };
-    fetch("http://localhost:3005/spark", options)
-      .then((response) => {
-        response.json();
-        console.log(response);
-      })
-      .catch((error) => console.log(error));
-  }
+	const [values, setValues] = useState({
+		title: "",
+		post: ""
+	});
 
-  return (
-    <div className="Main">
-      <div className="About-List">
-        <form onSubmit={handleSubmitPost} className="Input-Form">
-          <h2 className="Input-Form_Label">ENTER TITLE</h2>
-          <input
-            className="Input-Form_Input"
-            type="text"
-            id="title"
-            name="title"
-            value={post.title}
-            placeholder="ENTER TITLE"
-            onChange={handleChange}
-            required
-          />
-          <h2 className="Input-Form_Label">ENTER POST</h2>
-          <textarea
-            className="Input-Form_Textarea"
-            type="text"
-            id="text"
-            name="body"
-            value={post.body}
-            placeholder="WRITE POST HERE"
-            cols="30"
-            rows="10"
-            onChange={handleChange}
-          />
-          <h2 className="Input-Form_Label">PUBLISH</h2>
-          <button className="Input-Button" type="submit">
-            <p>SEND POST</p>
-          </button>
-        </form>
-      </div>
-    </div>
-  );
-}
+	const [didEdit, setDidEdit] = useState({
+		title: false,
+		post: false
+	});
+
+	const handleValueChange = (identifier, value) => {
+		setValues(prev => ({
+			...prev,
+			[identifier]: value
+		}));
+	};
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		const fd = new FormData(event.target);
+		const stateObject = Object.fromEntries(fd.entries());
+		setValues(stateObject);
+		console.log(values);
+	};
+
+	const handleReset = (identifier) => {
+		setValues((prev => ({
+			...prev,
+			[identifier]: ""
+		})));
+	};
+
+	const handleInputBlur = (identifier) => {
+		setDidEdit(prev => ({
+			...prev,
+			[identifier]: true
+		}));
+	}
+
+	const hasTitleError = didEdit.title && values.title.trim().length === 0;
+	const hasPostError = didEdit.post && values.post.trim().length === 0;
+
+	return (
+		<div className="main">
+			<form
+				className="input--form__container"
+				onSubmit={handleSubmit}
+			>
+				<div className="input--form">
+					<label htmlFor="title" className="input--form__label">ENTER TITLE</label>
+					<input
+						className="input--form__input"
+						type="text"
+						id="title"
+						name="title"
+						value={values.title}
+						placeholder="ENTER TITLE"
+						onBlur={() => handleInputBlur("title")}
+						onChange={(event) => handleValueChange("title", event.target.value)}
+					/>
+					<div className="input--button__area">
+						<button
+							onClick={() => handleReset("title")}
+							type="button"
+							className="input--button"
+						>
+							RESET
+						</button>
+						{hasTitleError && <p>no empty</p>}
+					</div>
+				</div>
+				<div className="input--form">
+					<label htmlFor="post" className="input--form__label">ENTER POST</label>
+					<textarea
+						className="input--form__textarea"
+						id="post"
+						name="post"
+						value={values.post}
+						placeholder="WRITE POST HERE"
+						onBlur={() => handleInputBlur("post")}
+						onChange={(event) => handleValueChange("post", event.target.value)}
+					/>
+					<div className="input--button__area">
+						<button
+							onClick={() => handleReset("post")}
+							type="button"
+							className="input--button"
+						>
+							RESET
+						</button>
+						{hasPostError && <p>no empty</p>}
+					</div>
+				</div>
+				<button
+					disabled={hasPostError || hasTitleError}
+					type="submit"
+					className="input--button__submit"
+				>
+					PUBLISH
+				</button>
+			</form>
+		</div>
+	);
+};
