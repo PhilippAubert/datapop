@@ -5,12 +5,12 @@
   background-color: black;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  padding-bottom: 8px;
 }
 
 .header__hero {
   box-sizing:border-box;
-  display: flex;
-  justify-content: center;
 }
 
 .header__headline {

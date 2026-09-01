@@ -14,19 +14,7 @@ export const Input = () => {
 
   function handleSubmitPost(event) {
     event.preventDefault();
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ title: post.title, body: post.body }),
-    };
-    fetch("http://localhost:3005/spark", options)
-      .then((response) => {
-        response.json();
-        console.log(response);
-      })
-      .catch((error) => console.log(error));
+    console.log(post);
   }
 
   return (
