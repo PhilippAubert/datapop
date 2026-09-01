@@ -10,6 +10,11 @@ export const Input = () => {
 		post: ""
 	});
 
+	const [didEdit, setDidEdit] = useState({
+		title: false,
+		post: false
+	});
+
 	const handleValueChange = (identifier, value) => {
 		setValues(prev => ({
 			...prev,
@@ -22,6 +27,7 @@ export const Input = () => {
 		const fd = new FormData(event.target);
 		const stateObject = Object.fromEntries(fd.entries());
 		setValues(stateObject);
+		console.log(values);
 	};
 
 	const handleReset = (identifier) => {
@@ -30,6 +36,16 @@ export const Input = () => {
 			[identifier]: ""
 		})));
 	};
+
+	const handleInputBlur = (identifier) => {
+		setDidEdit(prev => ({
+			...prev,
+			[identifier]: true
+		}));
+	}
+
+	const hasTitleError = didEdit.title && values.title.trim().length === 0;
+	const hasPostError = didEdit.post && values.post.trim().length === 0;
 
 	return (
 		<div className="main">
@@ -46,18 +62,19 @@ export const Input = () => {
 						name="title"
 						value={values.title}
 						placeholder="ENTER TITLE"
+						onBlur={() => handleInputBlur("title")}
 						onChange={(event) => handleValueChange("title", event.target.value)}
 					/>
-					{/* 			{titleIsInvalid &&
-						<div className="control-error"><p>Invalid Title</p></div>
-					} */}
-					<button
-						onClick={() => handleReset("title")}
-						type="button"
-						className="input--button"
-					>
-						RESET
-					</button>
+					<div className="input--button__area">
+						<button
+							onClick={() => handleReset("title")}
+							type="button"
+							className="input--button"
+						>
+							RESET
+						</button>
+						{hasTitleError && <p>no empty</p>}
+					</div>
 				</div>
 				<div className="input--form">
 					<label htmlFor="post" className="input--form__label">ENTER POST</label>
@@ -67,20 +84,27 @@ export const Input = () => {
 						name="post"
 						value={values.post}
 						placeholder="WRITE POST HERE"
+						onBlur={() => handleInputBlur("post")}
 						onChange={(event) => handleValueChange("post", event.target.value)}
 					/>
-					<button
-						onClick={() => handleReset("post")}
-						type="button"
-						className="input--button"
-					>
-						RESET
-					</button>
-					<p className="input--form__label">PUBLISH</p>
-					<button type="submit" className="input--button">
-						SEND POST
-					</button>
+					<div className="input--button__area">
+						<button
+							onClick={() => handleReset("post")}
+							type="button"
+							className="input--button"
+						>
+							RESET
+						</button>
+						{hasPostError && <p>no empty</p>}
+					</div>
 				</div>
+				<button
+					disabled={hasPostError || hasTitleError}
+					type="submit"
+					className="input--button__submit"
+				>
+					PUBLISH
+				</button>
 			</form>
 		</div>
 	);

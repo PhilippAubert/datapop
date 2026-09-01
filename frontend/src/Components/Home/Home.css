@@ -1,5 +1,5 @@
 .main {
-    box-sizing:border-box;
-    grid-row: 2/3; 
+    box-sizing: border-box;
+    grid-row: 2/3;
     grid-column: 2/3;
 }
