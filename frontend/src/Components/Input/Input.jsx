@@ -5,49 +5,56 @@ import "./Input.css";
 
 export const Input = () => {
 
-  const [post, setPost] = useState({});
+  const [values, setValues] = useState({
+      title:"",
+      post: ""
+  })
 
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setPost({ ...post, [name]: value });
+  const handleValueChange = (identifier, event) => {
+    setValues(prev => ({
+      ...prev, 
+      [identifier]:event.target.value
+    }));
   }
 
-  function handleSubmitPost(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(post);
   }
 
   return (
     <div className="main">
-      <div className="command--area">
-        <form onSubmit={handleSubmitPost} className="input--form">
-          <h2 className="input--form__label">ENTER TITLE</h2>
+        <form 
+          onSubmit={handleSubmit}
+          className="input--form">
+          <label htmlFor="title" className="input--form__label">ENTER TITLE</label>
           <input
             className="input--form__input"
             type="text"
             id="title"
             name="title"
-            value={post.title}
+            value={values.title}
             placeholder="ENTER TITLE"
-            onChange={handleChange}
-            required
+            onChange={(event)=>handleValueChange("title", event)}
           />
-          <h2 className="input--form__label">ENTER POST</h2>
+          <label className="input--form__label">ENTER POST</label>
           <textarea
+            htmlFor="post"
             className="input-form_textarea"
             type="text"
-            id="text"
-            name="body"
-            value={post.body}
+            id="post"
+            name="post"
+            value={values.post}
             placeholder="WRITE POST HERE"
-            onChange={handleChange}
+            onChange={(event)=>handleValueChange("post", event)}
           />
-          <h2 className="input--form__label">PUBLISH</h2>
-          <button className="input-button" type="submit">
+          <p className="input--form__label">PUBLISH</p>
+          <button 
+            type="submit"
+            className="input-button"
+          >
             <p>SEND POST</p>
           </button>
         </form>
       </div>
-    </div>
   );
 }
