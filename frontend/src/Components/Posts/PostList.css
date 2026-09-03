@@ -1,0 +1,17 @@
+.main {
+    padding: 8px;
+}
+
+.posts--list {
+    height: 100%;
+    width: 100%;
+}
+
+.posts--list__fallback {
+    color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    height: 100%;
+}

@@ -19,7 +19,7 @@ export const PostList = () => {
 	}, []);
 
 
-	function handlePostRemove(post) {
+	const handlePostRemove = (post) => {
 		console.log(` deleting post ${post.title}`);
 		const newPosts = posts.filter((postItem) => {
 			return postItem !== post;
@@ -44,7 +44,7 @@ export const PostList = () => {
 		setPosts(newPosts);
 	}
 
-	function switchToEdit(id) {
+	const switchToEdit = (id) => {
 		navigate(`/edit/${id}`);
 	}
 
@@ -65,7 +65,7 @@ export const PostList = () => {
 							);
 						})
 						.reverse() ||
-					<div>NOTHING TO BE FOUND!</div>}
+					<p className="posts--list__fallback">NOTHING TO BE FOUND!</p>}
 			</div>
 		</div>
 	);
