@@ -3,18 +3,18 @@ import "./Posts.css";
 
 export const Post = ({ post, onRemoveClick, onSwitchClick }) => {
 
-	function handleEditClick() {
+	const handleEditClick = () => {
 		onSwitchClick(post._id);
 	}
 
-	function handleDeleteClick() {
+	const handleDeleteClick = () => {
 		onRemoveClick(post);
 	}
 	return (
-		<div className="posts--area">
-			<h2 className="posts--area__title">{post.title}</h2>
-			<div className="posts--area__post">
-				<p className="posts--area__text">{post.body}</p>
+		<div className="post--area">
+			<h2 className="post--title">{post.title}</h2>
+			<div className="post--text__area">
+				<p className="post--text">{post.body}</p>
 			</div>
 			<div className="button--area">
 				<button onClick={handleDeleteClick} className="button">
@@ -27,3 +27,6 @@ export const Post = ({ post, onRemoveClick, onSwitchClick }) => {
 		</div>
 	);
 }
+
+
+// goldener schnitt : 1.618, (1 + Wurzel 5) / 2  !!! 

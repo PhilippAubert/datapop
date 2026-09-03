@@ -5,10 +5,13 @@
 .posts--list {
     height: 100%;
     width: 100%;
+    color: #ddd;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    padding: 16px;
 }
 
 .posts--list__fallback {
-    color: #ddd;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 
 import { Post } from "./Post.jsx";
 
+import dummyPost from "../../utils/dummyPost.js"
+
 import "./PostList.css";
 
 export const PostList = () => {
 
-	const [posts, setPosts] = useState();
+	const [posts, setPosts] = useState(dummyPost);
 
 	const navigate = useNavigate();
 
@@ -48,25 +50,22 @@ export const PostList = () => {
 		navigate(`/edit/${id}`);
 	}
 
-	return (
-		<div className="main">
-			<div className="posts--list">
-				{posts &&
-					posts
-						.map((post) => {
-							console.log(post);
-							return (
-								<Post
-									key={post._id}
-									post={post}
-									onRemoveClick={handlePostRemove}
-									onSwitchClick={switchToEdit}
-								/>
-							);
-						})
-						.reverse() ||
-					<p className="posts--list__fallback">NOTHING TO BE FOUND!</p>}
-			</div>
+	return <div className="main">
+		<div className="posts--list">
+			{posts &&
+				posts
+					.map((post) => {
+						return (
+							<Post
+								key={post._id}
+								post={post}
+								onRemoveClick={handlePostRemove}
+								onSwitchClick={switchToEdit}
+							/>
+						);
+					}).reverse() ||
+				<p className="posts--list__fallback">NOTHING TO BE FOUND</p>
+			}
 		</div>
-	);
+	</div>
 }
