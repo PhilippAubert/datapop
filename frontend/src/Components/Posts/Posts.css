@@ -1,28 +1,26 @@
-.Posts {
+.post--area {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 2rem;
-  padding: 1rem;
-  border-right: 2px solid #f2f;
-  width: 16em;
+  color: #ffffff;
 }
 
-.Posts_Headline {
-  margin: 0;
+.post--title {
+  font-size: 26px;
+  text-transform: uppercase;
 }
 
-.Posts_Textarea {
-  padding: 1rem 0;
+.post--text__area {
+  padding: 4px 0;
   overflow-wrap: break-word;
+  line-height: 1.2;
 }
 
-.Posts_Text {
+.button--area {
   margin: 0;
 }
 
-.Button {
-  border: 1px solid #f2f;
+.button {
   padding: 0.3rem;
   margin-right: 1rem;
   color: #fff;

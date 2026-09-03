@@ -1,0 +1,20 @@
+.main {
+    padding: 8px;
+}
+
+.posts--list {
+    height: 100%;
+    width: 100%;
+    color: #ddd;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    padding: 16px;
+}
+
+.posts--list__fallback {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    height: 100%;
+}

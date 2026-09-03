@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Posts from "./Posts.jsx";
+import { Post } from "./Post.jsx";
 
-export default function UserList() {
-	const [posts, setPosts] = useState();
+import dummyPost from "../../utils/dummyPost.js"
+
+import "./PostList.css";
+
+export const PostList = () => {
+
+	const [posts, setPosts] = useState(dummyPost);
 
 	const navigate = useNavigate();
 
@@ -16,7 +21,7 @@ export default function UserList() {
 	}, []);
 
 
-	function handlePostRemove(post) {
+	const handlePostRemove = (post) => {
 		console.log(` deleting post ${post.title}`);
 		const newPosts = posts.filter((postItem) => {
 			return postItem !== post;
@@ -41,29 +46,26 @@ export default function UserList() {
 		setPosts(newPosts);
 	}
 
-	function switchToEdit(id) {
+	const switchToEdit = (id) => {
 		navigate(`/edit/${id}`);
 	}
 
-	return (
-		<div className="Main">
-			<div className="Users-List">
-				{posts &&
-					posts
-						.map((post) => {
-							console.log(post);
-							return (
-								<Posts
-									key={post._id}
-									post={post}
-									onRemoveClick={handlePostRemove}
-									onSwitchClick={switchToEdit}
-								/>
-							);
-						})
-						.reverse() ||
-					<div>NOTHING TO BE FOUND!</div>}
-			</div>
+	return <div className="main">
+		<div className="posts--list">
+			{posts &&
+				posts
+					.map((post) => {
+						return (
+							<Post
+								key={post._id}
+								post={post}
+								onRemoveClick={handlePostRemove}
+								onSwitchClick={switchToEdit}
+							/>
+						);
+					}).reverse() ||
+				<p className="posts--list__fallback">NOTHING TO BE FOUND</p>
+			}
 		</div>
-	);
+	</div>
 }

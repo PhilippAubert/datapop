@@ -7,7 +7,7 @@ import {
 
 import { Header } from "./Components/Header/Header.jsx";
 import { Input } from "./Components/Input/Input.jsx";
-import PostList from "./Components/Posts/PostList.jsx";
+import { PostList } from "./Components/Posts/PostList.jsx";
 import { Home } from "./Components/Home/Home.jsx";
 import Edit from "./Components/Edit/Edit.jsx";
 import { Footer } from "./Components/Footer/Footer.jsx";
@@ -16,7 +16,7 @@ import "./App.css";
 
 export default function App() {
 	return (
-		<div className="App">
+		<div className="app">
 			<BrowserRouter>
 				<Header />
 				<Routes>
