@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Posts from "./Posts.jsx";
+import { Post } from "./Post.jsx";
 
-export default function UserList() {
+import "./PostList.css";
+
+export const PostList = () => {
+
 	const [posts, setPosts] = useState();
 
 	const navigate = useNavigate();
@@ -46,14 +49,14 @@ export default function UserList() {
 	}
 
 	return (
-		<div className="Main">
-			<div className="Users-List">
+		<div className="main">
+			<div className="posts--list">
 				{posts &&
 					posts
 						.map((post) => {
 							console.log(post);
 							return (
-								<Posts
+								<Post
 									key={post._id}
 									post={post}
 									onRemoveClick={handlePostRemove}
