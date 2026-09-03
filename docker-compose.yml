@@ -8,12 +8,7 @@ services:
       - "3000:3000"
     volumes:
       - ./server:/app
-      - /app/node_modules 
-    env_file:
-      - ./server/.env  
-    environment:
-      - MONGO_URI=mongodb://database:27017/datapop
-      - PORT=3000 
+      - /app/node_modules
 
   frontend:
     build: ./frontend
