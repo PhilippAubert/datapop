@@ -1,40 +1,37 @@
-import dotenv from "dotenv";
 import express from "express";
+import dotenv from "dotenv";
 import cors from "cors";
+import cookieParser from "cookie-parser";
+import mongoose from "mongoose";
 
 dotenv.config();
 
+const MONGO_URI = process.env.MONGO_URI;
+const PORT = process.env.PORT;
 const app = express();
 
-const port = process.env.PORT;
-
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(cors());
 
-app.get("/", (req, res) => {
-	res.json("HELLO WORLD!!__!!!!");
+
+mongoose.connect(MONGO_URI, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true
 })
+	.then(() => console.log('mongodb connected to docker '))
+	.catch(err => console.error('mongoose connetion error:', err));
 
-const connect = async () => {
-	const client = await pool.connect();
-	try {
-		const response = await client.query("SELECT * FROM posts");
-		const { rows } = response;
-		console.log(rows);
-	} catch (e) {
-		console.error(`There's an error ${e} line 34`);
-	} finally {
-		client.release()
+app.get('/', (req, res) => {
+	res.json({ message: "HELLO WORLD!! Database status: connected" });
+	const start = async () => {
+		try {
+		} catch (error) {
+			console.error(error);
+		}
 	}
-}
+	start();
+});
 
-const start = async () => {
-	try {
-		//await connectDB(process.env.MONGO_URI);
-		app.listen(port, console.log(`server is listening on ${port}...`));
-	} catch (error) {
-		console.error(error);
-	}
-};
-
-start();
+app.listen(PORT, console.log(`server is listening on ${PORT}...`));
