@@ -31,8 +31,10 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+*.sw
 
 # Operating System Files (System-Müll)
 .DS_Store
 Thumbs.db
+
+.docker-data

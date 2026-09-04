@@ -1,19 +1,30 @@
 version: "3.8"
 
 services:
+  mongodb:
+    image: mongo:4.4.18
+    container_name: datapop_mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: secretpassword
+    volumes:
+      - ./.docker-data/mongodb:/data/db
+
   server:
-    build: ./server
+    build: ./backend
     container_name: datapop_backend
     ports:
       - "3000:3000"
     volumes:
-      - ./server:/app
-      - /app/node_modules 
-    env_file:
-      - ./server/.env  
+      - ./backend:/app
+      - /app/node_modules
+    depends_on:
+      - mongodb
     environment:
-      - MONGO_URI=mongodb://database:27017/datapop
-      - PORT=3000 
+      - MONGO_URI=mongodb://root:secretpassword@mongodb:27017/datapop?authSource=admin
 
   frontend:
     build: ./frontend
