@@ -1,6 +1,18 @@
 version: "3.8"
 
 services:
+  mongodb:
+    image: mongo:6.0
+    container_name: datapop_mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: secretpassword
+    volumes:
+      - ./.docker-data/mongodb:/data/db
+
   server:
     build: ./backend
     container_name: datapop_backend
@@ -9,6 +21,10 @@ services:
     volumes:
       - ./backend:/app
       - /app/node_modules
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URI=mongodb://root:secretpassword@mongodb:27017/datapop?authSource=admin
 
   frontend:
     build: ./frontend
