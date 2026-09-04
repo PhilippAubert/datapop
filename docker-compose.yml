@@ -2,12 +2,12 @@ version: "3.8"
 
 services:
   server:
-    build: ./server
+    build: ./backend
     container_name: datapop_backend
     ports:
       - "3000:3000"
     volumes:
-      - ./server:/app
+      - ./backend:/app
       - /app/node_modules
 
   frontend:
